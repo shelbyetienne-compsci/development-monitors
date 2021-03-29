@@ -1,0 +1,545 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  color: white;
+  /*background: url("https://wallpaperaccess.com/full/1155041.jpg");*/
+  background-color: rgb(71, 146, 214);
+}
+
+/*
+#scene,
+canvas {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+}*/
+
+/*
+Home Page
+*/
+.foot{
+  height: 20vh;
+}
+.popup{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.2);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 11;
+}
+
+.popup-inner {
+  color: black;
+  position: relative;
+  padding: 32px;
+  width: 100%;
+  max-width: 640px;
+  background-color: white;
+  border-radius: 25px;
+  z-index: 13;
+}
+
+#title-icon{
+  color:white;
+  text-decoration: none;
+}
+
+header h2{
+  position: absolute;
+  margin: auto 5vw;
+}
+
+header ul{
+  position: absolute;
+  right: 0px;
+  display: flex;
+  list-style: none;
+}
+
+header ul li{
+  margin: auto 1vw;
+  line-height: 25px;
+  padding: auto auto;
+}
+
+header{
+  height: 50px;
+  width: 100%;
+  display: flex;
+  border-bottom: 1px solid white;
+  align-items: center;
+  font-size: large;
+}
+
+#content{
+  display: flex;
+  flex-direction: column;
+  margin: 5vh 5vw;
+}
+
+#content h1{
+  font-size: 75px;
+  width:45vw;
+}
+
+#content p{
+  font-size: 30px;
+  width: 45vw;
+  height: 200px;
+  z-index: 10;
+}
+
+#globe{
+  width: 100%;
+  height: 100%;
+}
+
+#signup{
+  background-color:  rgb(71, 146, 214);
+  height: 25px;
+  width: 50px;
+  color: white;
+  border: 1px solid white;
+}
+
+.link{
+  color:white;
+  text-decoration: none;
+}
+
+
+/*
+
+.one{
+  background-color: blue;
+}
+.two{
+  background-color: red;
+}*/
+
+
+#scene{
+  overflow:hidden;
+  width: 100vw;
+  height: 90vh;
+  /*background-image: url("photos/earth.png");*/
+  background-size: 95vw 95vw;
+  background-position: right -40vh bottom -40vh;
+  background-repeat: no-repeat;
+  display: grid;
+  grid-template-columns: 20% 80%;
+  grid-template-rows: 20% 80%;
+}
+
+.content-img{
+  width: 100px;
+  height: 100px;
+}
+
+.content-items {
+  padding: 0px;
+  display: flex;
+  flex-direction: row;
+}
+
+.content-items #head-par p{
+  overflow-wrap: break-word;
+}
+
+#head-par{
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+#head-par p{
+  font-size: 20px;
+}
+
+/*
+Section One
+*/
+.about-us{
+  width:100vw;
+  padding: 20px;
+  color: black;
+  background-color: white;
+  height: 350px;
+  
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 50% 50%;
+}
+
+.three{
+  overflow: visible;
+}
+/*
+Section Two
+*/
+.specialize{
+  width: 100%;
+  background-color: white;
+  height: 200px;
+  display: grid;
+  color: black;
+  grid-template-columns: 40% 60%;
+  justify-content: center;
+  align-items: center;
+}
+
+#title-button{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.specialize p{
+  padding: 20px;
+  font-size: 20px;
+  height: 180px;
+  overflow:scroll;
+}
+
+.specialize button{
+  background-color: rgb(71, 146, 214);
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+
+/*
+Section Three
+*/
+#sec-three{
+  justify-content: space-between;
+  display: grid;
+  grid-template-columns:33% 33% 33%;
+  height: 200px;
+  align-items: center;
+}
+
+#sec-three #head-par{
+  padding: 20px;
+}
+
+
+/*
+Section Four
+*/
+#sec-four{
+  height: 25vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 210px;
+}
+
+.bg-white{
+  background-color: white;
+}
+
+#sec-four img{
+  color: black;
+  width: 200px;
+  height: 200px;
+  
+}
+
+/*
+Section Five
+*/
+.sec-five{
+  height: 25vh;
+  width: 80vw;
+}
+
+.sec-five img{
+  width: 150px;
+  height: 150px;
+}
+
+.five-sec{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.part-one{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.part-one div{
+  margin: auto;
+}
+.part-two{
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-around;
+}
+.part-two div{
+  margin: auto;
+}
+.part-three{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.part-three div{
+  margin: auto;
+}
+
+/***************ABOUT*********************/
+.img-p{
+  display: flex;
+  flex-direction: row;
+}
+
+.img-p img{
+  width: 100px;
+  height: 100px;
+}
+
+
+/***************PROJECT*********************/
+.projects{
+  width:60vw;
+}
+
+.projects img{
+  min-width: 100px;
+  min-height: 100px;
+}
+
+/***************Tools*********************/
+.tools{
+  width:60vw;
+}
+
+.tools img{
+  min-width: 100px;
+  min-height: 100px;
+}
+
+
+/***************CONTACT*********************/
+.con-body{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  color: black
+}
+
+.center{
+  width: 1000px;
+}
+
+.body{
+  height: 100vh;
+  width: 1000px;
+  display: flex;
+  flex-direction: row;
+}
+
+.head{
+  display: flex;
+  flex-direction: row;
+  width: 1000px;
+}
+
+.lists{
+  display: flex;
+  flex-direction: column;
+  margin: 0 0 0 auto;
+  width: 30vw;
+}
+
+.lists ul{
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.lists ul li{
+  font-size: 14px;
+}
+
+.head img{
+  width: 100px;
+  height: 100px;
+}
+
+#form{
+  justify-content: space-around;
+  width: 600px;
+  height: 40vh;
+  display: flex;
+  flex-direction: column;
+}
+
+#form input{
+  height: 40px;
+}
+
+.btn{
+  width: 150px;
+  height: 50px;
+  border: none;
+}
+
+.form-bdy{
+  width: 600px;
+  display: flex;
+  flex-direction: column;
+}
+
+.right-side{
+  margin-left: 20px;
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  height: 15vh;
+  justify-content: space-between;
+}
+
+.select{
+  display: block;
+	font-size: 16px;
+	font-family: sans-serif;
+	font-weight: 700;
+	color: #444;
+	line-height: 1.3;
+	padding: .6em 1.4em .5em .8em;
+	width: 100%;
+	max-width: 100%;
+	box-sizing: border-box;
+	margin: 0;
+	border: 1px solid #aaa;
+	box-shadow: 0 1px 0 1px rgba(0,0,0,.04);
+	border-radius: 0em;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	appearance: none;
+	background-color: #fff;
+	background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E'),
+	  linear-gradient(to bottom, #ffffff 0%,#e5e5e5 100%);
+	background-repeat: no-repeat, repeat;
+	background-position: right .7em top 50%, 0 0;
+	background-size: .65em auto, 100%;
+}
+
+.first-prt{
+  height: 7vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.second-prt{
+  height: 5vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.third-prt{
+  height: 15vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.third-prt img{
+  width:25px;
+  height: 25px;
+}
+
+.socials{
+  display: flex;
+  flex-direction: row;
+}
+
+@media (min-width: 1500px)
+{
+  #scene{
+    background-size: 1500px 1500px;
+    background-position: right -40vh bottom -40vh;
+  }
+}
+
+@media (max-width: 600px)
+{
+  #scene{
+    background-size: 1000px 1000px;
+    background-position: right -20vh bottom -40vh;
+    grid-template-columns: 100%;
+    grid-template-rows: 40% 0% 0% 60%;
+  }
+
+  #content h1{
+    text-align: center;
+  }
+  
+  #content p{
+    text-align: center;
+  }
+  .about-us{
+    background-color: white;
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    margin: 0 auto;
+  }
+  #sec-three{
+    width: 600px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    margin:0 auto;
+    position: relative;
+  }
+  .bg-white{
+    background-color: white;
+  }
+  .specialize{
+    height: auto
+  }
+}
+
+@media (max-width: 1250px)
+{
+  .content-items{
+    background-color: #444;
+    width:75px;
+    height:125px;
+  }
+}
+
+
