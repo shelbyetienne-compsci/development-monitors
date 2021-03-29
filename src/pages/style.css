@@ -9,6 +9,11 @@ body {
   color: white;
   /*background: url("https://wallpaperaccess.com/full/1155041.jpg");*/
   background-color: rgb(71, 146, 214);
+  overflow-x: hidden;
+}
+
+button:hover, a:hover{
+  cursor: pointer;
 }
 
 /*
@@ -55,14 +60,7 @@ Home Page
   text-decoration: none;
 }
 
-header h2{
-  position: absolute;
-  margin: auto 5vw;
-}
-
 header ul{
-  position: absolute;
-  right: 0px;
   display: flex;
   list-style: none;
 }
@@ -70,22 +68,27 @@ header ul{
 header ul li{
   margin: auto 1vw;
   line-height: 25px;
-  padding: auto auto;
 }
 
 header{
-  height: 50px;
-  width: 100%;
-  display: flex;
+  width: 100vw;
   border-bottom: 1px solid white;
+}
+
+header div{
+  height: 60px;
+  width: 75vw;
+  display: flex;
   align-items: center;
+  justify-content: space-between;
   font-size: large;
+  margin: 0 auto;
 }
 
 #content{
   display: flex;
   flex-direction: column;
-  margin: 5vh 5vw;
+  margin: 10vh 12.5vw;
 }
 
 #content h1{
@@ -151,6 +154,7 @@ header{
   padding: 0px;
   display: flex;
   flex-direction: row;
+  align-items: center;
 }
 
 .content-items #head-par p{
@@ -171,15 +175,15 @@ header{
 Section One
 */
 .about-us{
-  width:100vw;
-  padding: 20px;
+  width: 75vw;
+  margin: 0 auto;
+  padding: 60px 0;
   color: black;
   background-color: white;
-  height: 350px;
-  
   display: grid;
   grid-template-columns: 50% 50%;
   grid-template-rows: 50% 50%;
+  grid-gap: 50px;
 }
 
 .three{
@@ -191,12 +195,11 @@ Section Two
 .specialize{
   width: 100%;
   background-color: white;
-  height: 200px;
-  display: grid;
   color: black;
   grid-template-columns: 40% 60%;
   justify-content: center;
   align-items: center;
+  padding: 100px 0;
 }
 
 #title-button{
@@ -205,6 +208,7 @@ Section Two
   justify-content: center;
   align-items: center;
   text-align: center;
+  height: 100%;
 }
 
 .specialize p{
@@ -212,6 +216,10 @@ Section Two
   font-size: 20px;
   height: 180px;
   overflow:scroll;
+}
+
+.specialize a{
+  margin-top: 20px;
 }
 
 .specialize button{
@@ -223,6 +231,11 @@ Section Two
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
+  transition: 0.3s ease;
+}
+
+.specialize button:hover{
+  padding: 15px 50px;
 }
 
 
@@ -233,8 +246,10 @@ Section Three
   justify-content: space-between;
   display: grid;
   grid-template-columns:33% 33% 33%;
-  height: 200px;
   align-items: center;
+  width: 75vw;
+  margin: 0 auto;
+  padding: 60px 0;
 }
 
 #sec-three #head-par{
@@ -246,11 +261,13 @@ Section Three
 Section Four
 */
 #sec-four{
-  height: 25vh;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   min-height: 210px;
+  width: 75vw;
+  margin: 0 auto;
+  padding: 80px 0;
 }
 
 .bg-white{
@@ -259,9 +276,7 @@ Section Four
 
 #sec-four img{
   color: black;
-  width: 200px;
-  height: 200px;
-  
+  height: 120px;
 }
 
 /*

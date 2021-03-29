@@ -7,6 +7,11 @@ import {Link} from 'react-router-dom';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import cloud from "./photos/cloud.png";
 import bulb from "./photos/bulb.png";
+import worldbank from './photos/worldbank.jpg'
+import deutschebank from './photos/deutschebank.jpg'
+import governmentofafghanistan from './photos/governmentofafghanistan.png'
+import mrrd from './photos/mrrd.png'
+import cttc from './photos/cttc.png'
 
 
 
@@ -227,9 +232,9 @@ function SectionTwo(){
           </div>
 
 
-          <p>
+          {/* <p>
           "Lorem ipsum dolor sit amet, consecteturadipiscingelit, sed do eiusmodtemporincididuntutlaboreet dolore magna aliqua. Ut enimad minim veniam, quisnostrudexercitation ullamcolaborisnisi utaliquipex eacommodoconsequat. Duis auteiruredolor in reprehenderitin voluptatevelitessecillumdolore eufugiatnullapariatur. Excepteursintoccaecatcupidatatnon proident, sunt in culpa qui officiadeseruntmollitanimid estlaborum."
-          </p>
+          </p> */}
         </div>
       </>
     );
@@ -252,11 +257,11 @@ function SectionFour(){
   return (
     <>
     <div id="sec-four">
-      <img src="" alt="The World Bank"/>
-      <img src="" alt="Bank of Germany"/>
-      <img src="" alt="Government of Afghanistan"/>
-      <img src="" alt="MRRD"/>
-      <img src="" alt="CTTC"/>
+      <img src={worldbank} alt="The World Bank"/>
+      <img src={deutschebank} alt="Bank of Germany"/>
+      <img src={governmentofafghanistan} alt="Government of Afghanistan"/>
+      <img src={mrrd} alt="MRRD"/>
+      <img src={cttc} alt="CTTC"/>
     </div>
     </>
   );
@@ -282,7 +287,7 @@ function SectionFive(){
     <>
       <div className="sec-five">
         {contents("part-one","", "Autonomous flight planning for high-resolution imagery capture","captureLorem ipsum dolor sit amet, consecteturadipiscingelit, sed do eiusmodtemporincididuntutlaboreet dolore magna aliqua. ")}
-        {contents("part-two", "", "3D Cadastreaand disaster risk mapping", "captureLorem ipsum dolor sit amet, consecteturadipiscingelit, sed do eiusmodtemporincididuntutlaboreet dolore magna aliqua. ")}
+        {contents("part-two", "", "3D Cadastre and disaster risk mapping", "captureLorem ipsum dolor sit amet, consecteturadipiscingelit, sed do eiusmodtemporincididuntutlaboreet dolore magna aliqua. ")}
         {contents("part-three", "", "Community weather Stations and Mobile App", "captureLorem ipsum dolor sit amet, consecteturadipiscingelit, sed do eiusmodtemporincididuntutlaboreet dolore magna aliqua. ")}
       </div>
     </>
