@@ -12,6 +12,10 @@ import deutschebank from './photos/deutschebank.jpg'
 import governmentofafghanistan from './photos/governmentofafghanistan.png'
 import mrrd from './photos/mrrd.png'
 import cttc from './photos/cttc.png'
+import { MdLocationOn } from 'react-icons/md'
+
+import 'tippy.js/dist/tippy.css';
+import 'tippy.js/animations/scale.css';
 
 
 
@@ -83,10 +87,6 @@ function Home () {
     },
   ];
 
-  function markerTooltipRenderer(marker) {
-    return marker.city;
-  }
-
   function onClick (e) {
     setTrigger(true);
     setClient(e.client);
@@ -102,10 +102,10 @@ function Home () {
   }
 
   //popup
-  const [trigger, setTrigger] = React.useState(false);
+  const [trigger, setTrigger] = useState(false);
   const [client, setClient] = useState("");
-  const [location, setLocation]= useState("");
-  const [projects, setProjects]= useState([]);
+  const [location, setLocation] = useState("");
+  const [projects, setProjects] = useState([]);
   
   const [xcoordinates, setXCoordinates] = useState(0);
   const [ycoordinates, setYCoordinates] = useState(0);
@@ -127,10 +127,10 @@ function Home () {
             globeBackgroundTexture={null}
             markers={markers}
             options={{
-            enableGlobeGlow: false,
-            focusDistanceRadiusScale: 2.62,
-            enableCameraZoom: false,
-            markerTooltipRenderer
+              enableGlobeGlow: false,
+              focusDistanceRadiusScale: 2.62,
+              enableCameraZoom: false,
+              markerTooltipRenderer: marker => marker.city
             }}
             focus={null}
             onClickMarker={onClick}
@@ -154,7 +154,11 @@ function Home () {
       
       <Popup trigger={trigger} setTrig={setTrigger} x={xcoordinates} y={ycoordinates}>
           <h2>{client}</h2>
-          <h3>{location}</h3>
+          <div className="location">
+            <MdLocationOn />
+            <h3>{location}</h3>
+          </div>
+          <hr></hr>
           <div>
             {
               projects.map((value, index) => {
