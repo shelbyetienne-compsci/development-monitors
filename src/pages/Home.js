@@ -83,6 +83,10 @@ function Home () {
     },
   ];
 
+  function markerTooltipRenderer(marker) {
+    return marker.city;
+  }
+
   function onClick (e) {
     setTrigger(true);
     setClient(e.client);
@@ -124,12 +128,10 @@ function Home () {
             markers={markers}
             options={{
             enableGlobeGlow: false,
-            enableCameraZoom: false,
             focusDistanceRadiusScale: 2.62,
-            enableMarkerTooltip: false,
+            enableCameraZoom: false,
+            markerTooltipRenderer
             }}
-            initialCameraDistanceRadiusScale={2.62}
-            initialCoordinates={[0, -30]}
             focus={null}
             onClickMarker={onClick}
           />
@@ -161,8 +163,6 @@ function Home () {
             }
           </div>
       </Popup>
-
-
     </>
   );
 }
