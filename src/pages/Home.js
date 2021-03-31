@@ -1,10 +1,8 @@
 // eslint-disable-next-line
-import React, {useEffect, Component, useState} from "react";
-import ReactDOM from 'react-dom';
+import React, {useState} from "react";
 import ReactGlobe from "react-globe";
 import './style.css';
 import {Link} from 'react-router-dom';
-import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import cloud from "./photos/cloud.png";
 import bulb from "./photos/bulb.png";
 import worldbank from './photos/worldbank.jpg'

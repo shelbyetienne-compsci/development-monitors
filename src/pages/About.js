@@ -1,8 +1,5 @@
-import React, {useEffect, Component} from "react";
+import React from "react";
 import './style.css';
-import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
-
-
 
 function About () {
 

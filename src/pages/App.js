@@ -1,8 +1,5 @@
-import React, {useEffect, Component} from "react";
+import React from "react";
 import './style.css';
-import * as THREE from 'three';
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
-import {Test} from '../test';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import Nav from './Nav';
 import Home from './Home';

@@ -1,8 +1,5 @@
-
-
-import React, {useEffect, Component} from "react";
+import React from "react";
 import './style.css';
-import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import facebook from "./photos/facebook.png";
 import instagram from "./photos/instagram.png";
 import linkedin from "./photos/linkedin.png";
