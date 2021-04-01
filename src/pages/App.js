@@ -11,8 +11,8 @@ import SignIn from './SignIn';
 import SignUp from './SignUp';
 
 
-
 function App () {
+  document.title = 'Development Monitors';
 
   return (
     <Router>
@@ -20,7 +20,6 @@ function App () {
         <header>
           <Nav />
         </header>
-        
         
         <Switch>
           <Route path="/" exact component={Home} />

@@ -14,6 +14,8 @@ import { MdLocationOn } from 'react-icons/md'
 
 import 'tippy.js/dist/tippy.css';
 import 'tippy.js/animations/scale.css';
+import { useEffect } from "react";
+import { useRef } from "react";
 
 
 
@@ -90,13 +92,14 @@ function Home () {
     setClient(e.client);
     setLocation(e.city);
     setProjects(e.project);
-    var c = e.clientX;
     console.log(e);
   }
 
   function coordinates(e){
-    setXCoordinates(e.clientX);
-    setYCoordinates(e.clientY);
+    if(e.srcElement.nodeName == "CANVAS"){
+      setXCoordinates(e.clientX);
+      setYCoordinates(e.clientY);
+    }
   }
 
   //popup
@@ -107,6 +110,12 @@ function Home () {
   
   const [xcoordinates, setXCoordinates] = useState(0);
   const [ycoordinates, setYCoordinates] = useState(0);
+  const [screenHeight, setScreenHeight] = useState(window.innerHeight);
+
+  useEffect(() => {
+    window.addEventListener("mousedown", coordinates)
+    window.addEventListener("resize", () => setScreenHeight(window.innerHeight))
+  }, []);
 
   return (//onMouseDown={coordinates}
     <>
@@ -128,7 +137,8 @@ function Home () {
               enableGlobeGlow: false,
               focusDistanceRadiusScale: 2.62,
               enableCameraZoom: false,
-              markerTooltipRenderer: marker => marker.city
+              markerTooltipRenderer: marker => marker.city,
+              enableMarkerTooltip: trigger ? false : true
             }}
             focus={null}
             onClickMarker={onClick}
@@ -150,7 +160,8 @@ function Home () {
       <div className="foot">
       </div>
       
-      <Popup trigger={trigger} setTrig={setTrigger} x={xcoordinates} y={ycoordinates}>
+      <Popup trigger={trigger} setTrig={setTrigger} x={xcoordinates} y={ycoordinates} screenHeight={screenHeight}>
+          <span id="arrow"></span>
           <h2>{client}</h2>
           <div className="location">
             <MdLocationOn />
@@ -175,13 +186,15 @@ Popup
 */
 function Popup (props) {
   const mystyle = {
-    top: props.y ,
-    left: props.x
+    bottom: props.screenHeight - props.y + 25,
+    left: props.x - 640
   };
   return ( props.trigger ) ? (
     <>
       <div className="popup" onClick={() => props.setTrig(false)}> 
-        <div className="popup-inner" >
+        <div className="popup-inner" style={{
+          "position": "absolute", "left": mystyle.left, "bottom": mystyle.bottom
+        }}>
           { props.children }
         </div>
       </div> 
