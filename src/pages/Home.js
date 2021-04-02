@@ -1,4 +1,4 @@
-// eslint-disable-next-line
+ // eslint-disable-next-line
 import React, {useState} from "react";
 import ReactGlobe from "react-globe";
 import './style.css';
@@ -125,17 +125,15 @@ function Home () {
             <p>International development consulting firm providing governments and global lending institutions with technical consulting services supported by disruptive technologies.
             </p>
         </div>
-        <div className="one"></div>
-        <div className="two"></div>
         <div className="three">
           <ReactGlobe
-            height="130vh"
-            width="130vw"
+            height="70vh"
+            width="70vw"
             globeBackgroundTexture={null}
             markers={markers}
             options={{
               enableGlobeGlow: false,
-              focusDistanceRadiusScale: 2.62,
+              focusDistanceRadiusScale: 2.68 ,
               enableCameraZoom: false,
               markerTooltipRenderer: marker => marker.city,
               enableMarkerTooltip: trigger ? false : true
