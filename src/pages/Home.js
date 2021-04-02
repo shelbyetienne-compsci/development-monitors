@@ -96,7 +96,7 @@ function Home () {
   }
 
   function coordinates(e){
-    if(e.srcElement.nodeName == "CANVAS"){
+    if(e.srcElement.nodeName === "CANVAS"){
       setXCoordinates(e.clientX);
       setYCoordinates(e.clientY);
     }
@@ -118,7 +118,7 @@ function Home () {
     window.addEventListener("resize", () => setScreenHeight(window.innerHeight))
   }, []);
 
-  return (//onMouseDown={coordinates}
+  return (
     <>
       <div id="scene">
         <div id="content">
@@ -139,6 +139,7 @@ function Home () {
               enableMarkerTooltip: trigger ? false : true,
               enableMarkerTooltip: trigger ? false : true,
               cameraAutoRotateSpeed: speed,
+              focusEasingFunction: ['Cubic', 'Out'],
             }}
             focus={null}
             onClickMarker={onClick}
@@ -240,10 +241,6 @@ function SectionTwo(){
               <button>Learn More</button>
             </Link>
           </div>
-
-          {/* <p>
-          "Lorem ipsum dolor sit amet, consecteturadipiscingelit, sed do eiusmodtemporincididuntutlaboreet dolore magna aliqua. Ut enimad minim veniam, quisnostrudexercitation ullamcolaborisnisi utaliquipex eacommodoconsequat. Duis auteiruredolor in reprehenderitin voluptatevelitessecillumdolore eufugiatnullapariatur. Excepteursintoccaecatcupidatatnon proident, sunt in culpa qui officiadeseruntmollitanimid estlaborum."
-          </p> */}
         </div>
       </>
     );
