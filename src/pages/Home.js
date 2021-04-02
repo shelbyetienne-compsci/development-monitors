@@ -11,11 +11,9 @@ import governmentofafghanistan from './photos/governmentofafghanistan.png'
 import mrrd from './photos/mrrd.png'
 import cttc from './photos/cttc.png'
 import { MdLocationOn } from 'react-icons/md'
-
 import 'tippy.js/dist/tippy.css';
 import 'tippy.js/animations/scale.css';
 import { useEffect } from "react";
-import { useRef } from "react";
 
 
 
@@ -88,11 +86,12 @@ function Home () {
   ];
 
   function onClick (e) {
-    setTrigger(true);
-    setClient(e.client);
-    setLocation(e.city);
-    setProjects(e.project);
-    console.log(e);
+    setTimeout(() => {
+      setTrigger(true);
+      setClient(e.client);
+      setLocation(e.city);
+      setProjects(e.project);
+    }, 700)
   }
 
   function coordinates(e){
@@ -121,8 +120,8 @@ function Home () {
     <>
       <div id="scene">
         <div id="content">
-            <h1>Development Monitors</h1>
-            <p>International development consulting firm providing governments and global lending institutions with technical consulting services supported by disruptive technologies.
+            <h1>We provide governments and global lending institutions with technical consulting services supported by disruptive technologies</h1>
+            <p>Discover how we operate all over the globe
             </p>
         </div>
         <div className="three">
@@ -134,7 +133,6 @@ function Home () {
             options={{
               enableGlobeGlow: false,
               focusDistanceRadiusScale: 2.68 ,
-              enableCameraZoom: false,
               markerTooltipRenderer: marker => marker.city,
               enableMarkerTooltip: trigger ? false : true
             }}
@@ -183,16 +181,10 @@ function Home () {
 Popup
 */
 function Popup (props) {
-  const mystyle = {
-    bottom: props.screenHeight - props.y + 25,
-    left: props.x - 640
-  };
   return ( props.trigger ) ? (
     <>
       <div className="popup" onClick={() => props.setTrig(false)}> 
-        <div className="popup-inner" style={{
-          "position": "absolute", "left": mystyle.left, "bottom": mystyle.bottom
-        }}>
+        <div className="popup-inner">
           { props.children }
         </div>
       </div> 
@@ -215,8 +207,6 @@ const content = (img, head, para) => {
 }
 
 function SectionOne() {
-
-  
   return  (
     <>
         <div className="about-us">
@@ -225,15 +215,11 @@ function SectionOne() {
           {content(cloud, "Innovative", "Lorem ipsum dolor sit amet, consecteturadipiscingelit, sed do eiusmodtemporincididuntutlaboreet dolore magna aliqua")}
           {content(cloud, "Multi-disciplinary", "Lorem ipsum dolor sit amet, consecteturadipiscingelit, sed do eiusmodtemporincididuntutlaboreet dolore magna aliqua")}
         </div>
-    
     </>
   );
 }
 
 function SectionTwo(){
-
-
-
     return(
       <>
         <div className="specialize">
@@ -244,7 +230,6 @@ function SectionTwo(){
             </Link>
           </div>
 
-
           {/* <p>
           "Lorem ipsum dolor sit amet, consecteturadipiscingelit, sed do eiusmodtemporincididuntutlaboreet dolore magna aliqua. Ut enimad minim veniam, quisnostrudexercitation ullamcolaborisnisi utaliquipex eacommodoconsequat. Duis auteiruredolor in reprehenderitin voluptatevelitessecillumdolore eufugiatnullapariatur. Excepteursintoccaecatcupidatatnon proident, sunt in culpa qui officiadeseruntmollitanimid estlaborum."
           </p> */}
@@ -254,14 +239,13 @@ function SectionTwo(){
 }
 
 function SectionThree(){
-
   return (
     <>
-    <div id="sec-three">
-      {content(bulb, "Our Mission", "Lorem ipsum dolor sit amet, consecteturadipiscingelit, sed do eiusmodtemporincididuntutlaboreet dolore magna aliqua")}
-      {content(bulb, "Our Mission", "Lorem ipsum dolor sit amet, consecteturadipiscingelit, sed do eiusmodtemporincididuntutlaboreet dolore magna aliqua")}
-      {content(bulb, "Our Mission", "Lorem ipsum dolor sit amet, consecteturadipiscingelit, sed do eiusmodtemporincididuntutlaboreet dolore magna aliqua")}
-    </div>
+      <div id="sec-three">
+        {content(bulb, "Our Mission", "Lorem ipsum dolor sit amet, consecteturadipiscingelit, sed do eiusmodtemporincididuntutlaboreet dolore magna aliqua")}
+        {content(bulb, "Our Mission", "Lorem ipsum dolor sit amet, consecteturadipiscingelit, sed do eiusmodtemporincididuntutlaboreet dolore magna aliqua")}
+        {content(bulb, "Our Mission", "Lorem ipsum dolor sit amet, consecteturadipiscingelit, sed do eiusmodtemporincididuntutlaboreet dolore magna aliqua")}
+      </div>
     </>
   );
 }
@@ -269,13 +253,13 @@ function SectionThree(){
 function SectionFour(){
   return (
     <>
-    <div id="sec-four">
-      <img src={worldbank} alt="The World Bank"/>
-      <img src={deutschebank} alt="Bank of Germany"/>
-      <img src={governmentofafghanistan} alt="Government of Afghanistan"/>
-      <img src={mrrd} alt="MRRD"/>
-      <img src={cttc} alt="CTTC"/>
-    </div>
+      <div id="sec-four">
+        <img src={worldbank} alt="The World Bank"/>
+        <img src={deutschebank} alt="Bank of Germany"/>
+        <img src={governmentofafghanistan} alt="Government of Afghanistan"/>
+        <img src={mrrd} alt="MRRD"/>
+        <img src={cttc} alt="CTTC"/>
+      </div>
     </>
   );
 }
@@ -286,7 +270,7 @@ function SectionFive(){
     return (
       <>
       <div className={classN}>
-        <img src={img} alt="image"/>
+        <img src={img}/>
         <div>
           <h3>{head}</h3>
           <p>{para}</p>
