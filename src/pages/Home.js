@@ -1,4 +1,4 @@
- // eslint-disable-next-line
+// eslint-disable-next-line
 import React, {useState} from "react";
 import ReactGlobe from "react-globe";
 import './style.css';
