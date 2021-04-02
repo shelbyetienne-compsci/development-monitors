@@ -92,6 +92,7 @@ function Home () {
       setLocation(e.city);
       setProjects(e.project);
     }, 700)
+    setSpeed(0.0);
   }
 
   function coordinates(e){
@@ -103,6 +104,7 @@ function Home () {
 
   //popup
   const [trigger, setTrigger] = useState(false);
+  const [speed, setSpeed]= useState(0.1);
   const [client, setClient] = useState("");
   const [location, setLocation] = useState("");
   const [projects, setProjects] = useState([]);
@@ -134,7 +136,9 @@ function Home () {
               enableGlobeGlow: false,
               focusDistanceRadiusScale: 2.68 ,
               markerTooltipRenderer: marker => marker.city,
-              enableMarkerTooltip: trigger ? false : true
+              enableMarkerTooltip: trigger ? false : true,
+              enableMarkerTooltip: trigger ? false : true,
+              cameraAutoRotateSpeed: speed,
             }}
             focus={null}
             onClickMarker={onClick}
@@ -156,7 +160,7 @@ function Home () {
       <div className="foot">
       </div>
       
-      <Popup trigger={trigger} setTrig={setTrigger} x={xcoordinates} y={ycoordinates} screenHeight={screenHeight}>
+      <Popup trigger={trigger} setSpeed={setSpeed}  setTrig={setTrigger} x={xcoordinates} y={ycoordinates} screenHeight={screenHeight}>
           <span id="arrow"></span>
           <h2>{client}</h2>
           <div className="location">
@@ -181,9 +185,16 @@ function Home () {
 Popup
 */
 function Popup (props) {
+
+  function doFunc ()
+  {
+    props.setTrig(false)
+    props.setSpeed(0.1)
+  }
+
   return ( props.trigger ) ? (
     <>
-      <div className="popup" onClick={() => props.setTrig(false)}> 
+      <div className="popup" onClick={() => doFunc() }> 
         <div className="popup-inner">
           { props.children }
         </div>
