@@ -3,13 +3,17 @@ import React, {useState} from "react";
 import ReactGlobe from "react-globe";
 import './style.css';
 import {Link} from 'react-router-dom';
-import cloud from "./photos/cloud.png";
-import bulb from "./photos/bulb.png";
 import worldbank from './photos/worldbank.jpg'
 import deutschebank from './photos/deutschebank.jpg'
 import governmentofafghanistan from './photos/governmentofafghanistan.png'
 import mrrd from './photos/mrrd.png'
 import cttc from './photos/cttc.png'
+import blue from './photos/blue.png'
+import yellow from './photos/yellow.png'
+import expert from './photos/expert.png'
+import innovate from './photos/innovate.png'
+import multi from './photos/multi.png'
+import local from './photos/local.png'
 import { MdLocationOn } from 'react-icons/md'
 import 'tippy.js/dist/tippy.css';
 import 'tippy.js/animations/scale.css';
@@ -23,63 +27,63 @@ function Home () {
     {
       id: 'marker1',
       city: 'Afghanistan',
-      color: 'red',
+      color: '#F1C40F',
       coordinates: [33.9391, 67.7100],
-      value: 20,
+      value: 30,
       client: "World Bank",
       project: ["Technical Assistance for School Infrastructure Delivery in Afghanistan, 2018-2020","Disaster Risk Management Training for Afghanistan Government Officials, 2019-2020", "Community-Based Disaster Risk Management and Early Warning, 2019-2021"],
     },
     {
       id: 'marker2',
       city: 'Yemen',
-      color: 'blue',
+      color: '#F1C40F',
       coordinates: [15.5527, 48.5164],
-      value: 20,
+      value: 30,
       client: "World Bank",
       project: ["Bringing Back Business in Yemen, 2018-2019"],
       },
     {
       id: 'marker3',
       city: 'Frankfurt, Germany',
-      color: 'green',
+      color: '#F1C40F',
       coordinates: [50.1109, 8.6821],
-      value: 20,
+      value: 30,
       client: "German Bank for Reconstruction",
       project: ["Study on Remote Management, Monitoring, and Verification with a Focus on Fragile Countries and Volatile Environments, 2017-2018"],
     },
     {
       id: 'marker4',
       city: 'Afghanistan',
-      color: 'yellow',
-      coordinates: [33.9391, 67.7100],
-      value: 20,
+      color: '#F1C40F',
+      coordinates: [33.3391, 67.3100],
+      value: 30,
       client: "World Bank",
       project: ["Disaster Risk Management for Government Counterparts, 2018"],
     },
     {
       id: 'marker5',
       city: 'Afghanistan',
-      color: 'purple',
+      color: '#F1C40F',
       coordinates: [33.9391, 67.7100],
-      value: 20,
+      value: 30,
       client: "German Bank for Reconstruction",
       project: ["Economic Infrastructure Development Afghanistan, 2018-2021"],
     },
     {
       id: 'marker6',
       city: 'Blacksburg, Virginia',
-      color: 'orange',
-      coordinates: [37.2296, -80.4139],
-      value: 20,
+      color: '#3498DB',
+      coordinates: [37.8296, -80.8139],
+      value: 30,
       client: "National Science Foundation, Industry-University Cooperative Research Center, Center for Unmanned Aerial Systems",
       project: ["Aerial Cadastre and infrastructure Assessment for Disaster Risk Management 2020-2021"],
     },
     {
       id: 'marker7',
       city: 'Blacksburg, Virginia',
-      color: 'white',
+      color: '#3498DB',
       coordinates: [37.2296, -80.4139],
-      value: 20,
+      value: 30,
       client: "Commonwealth Center for Innovation in Autonomous Systems",
       project: ["Development of disaster risk assessment and recovery technology using low-cost UAVs and opensource AI and GIS tools for application in Virginia, the US, and in developing countries, 2021"],
     },
@@ -118,6 +122,12 @@ function Home () {
     window.addEventListener("resize", () => setScreenHeight(window.innerHeight))
   }, []);
 
+  /*
+  <div className="bg-white">
+      <SectionFour />
+      </div>
+  */
+
   return (
     <>
       <div id="scene">
@@ -126,6 +136,7 @@ function Home () {
             <p>Discover how we operate all over the globe
             </p>
         </div>
+
         <div className="three">
           <ReactGlobe
             height="70vh"
@@ -140,26 +151,32 @@ function Home () {
               enableMarkerTooltip: trigger ? false : true,
               cameraAutoRotateSpeed: speed,
               focusEasingFunction: ['Cubic', 'Out'],
+              enableMarkerGlow: false,
+              enableCameraZoom: true,
             }}
             focus={null}
             onClickMarker={onClick}
           />
+          <Legend/>
         </div>
       </div>
       
       <div className="bg-white">
-      <SectionOne/>
+        <SectionOne/>
       </div>
       <SectionTwo/>
+      
       <SectionThree/>
-      <div className="bg-white">
-      <SectionFour />
-      </div>
+      
+      
+      
       <div className="five-sec">
       <SectionFive />
       </div>
       <div className="foot">
+        <Footer />
       </div>
+      
       
       <Popup trigger={trigger} setSpeed={setSpeed}  setTrig={setTrigger} x={xcoordinates} y={ycoordinates} screenHeight={screenHeight}>
           <span id="arrow"></span>
@@ -208,7 +225,7 @@ const content = (img, head, para) => {
   return(
     <>
     <div className="content-items">
-      <img className="content-img" src={img} alt="icon"/>
+      <img className="content-img" src={img} alt=""/>
       <div id="head-par">
       <h2>{head}</h2>
       <p>{para}</p>
@@ -222,10 +239,10 @@ function SectionOne() {
   return  (
     <>
         <div className="about-us">
-          {content(cloud, "Expertise", "Lorem ipsum dolor sit amet, consecteturadipiscingelit, sed do eiusmodtemporincididuntutlaboreet dolore magna aliqua")}
-          {content(cloud, "Localized", "Lorem ipsum dolor sit amet, consecteturadipiscingelit, sed do eiusmodtemporincididuntutlaboreet dolore magna aliqua")}
-          {content(cloud, "Innovative", "Lorem ipsum dolor sit amet, consecteturadipiscingelit, sed do eiusmodtemporincididuntutlaboreet dolore magna aliqua")}
-          {content(cloud, "Multi-disciplinary", "Lorem ipsum dolor sit amet, consecteturadipiscingelit, sed do eiusmodtemporincididuntutlaboreet dolore magna aliqua")}
+          {content(expert, "Expertise", "Lorem ipsum dolor sit amet, consecteturadipiscingelit, sed do eiusmodtemporincididuntutlaboreet dolore magna aliqua")}
+          {content(local, "Localized", "Lorem ipsum dolor sit amet, consecteturadipiscingelit, sed do eiusmodtemporincididuntutlaboreet dolore magna aliqua")}
+          {content(innovate, "Innovative", "Lorem ipsum dolor sit amet, consecteturadipiscingelit, sed do eiusmodtemporincididuntutlaboreet dolore magna aliqua")}
+          {content(multi, "Multi-disciplinary", "Lorem ipsum dolor sit amet, consecteturadipiscingelit, sed do eiusmodtemporincididuntutlaboreet dolore magna aliqua")}
         </div>
     </>
   );
@@ -250,9 +267,9 @@ function SectionThree(){
   return (
     <>
       <div id="sec-three">
-        {content(bulb, "Our Mission", "Lorem ipsum dolor sit amet, consecteturadipiscingelit, sed do eiusmodtemporincididuntutlaboreet dolore magna aliqua")}
-        {content(bulb, "Our Mission", "Lorem ipsum dolor sit amet, consecteturadipiscingelit, sed do eiusmodtemporincididuntutlaboreet dolore magna aliqua")}
-        {content(bulb, "Our Mission", "Lorem ipsum dolor sit amet, consecteturadipiscingelit, sed do eiusmodtemporincididuntutlaboreet dolore magna aliqua")}
+        {content("", "Our Mission", "Lorem ipsum dolor sit amet, consecteturadipiscingelit, sed do eiusmodtemporincididuntutlaboreet dolore magna aliqua")}
+        {content("", "Our Mission", "Lorem ipsum dolor sit amet, consecteturadipiscingelit, sed do eiusmodtemporincididuntutlaboreet dolore magna aliqua")}
+        {content("", "Our Mission", "Lorem ipsum dolor sit amet, consecteturadipiscingelit, sed do eiusmodtemporincididuntutlaboreet dolore magna aliqua")}
       </div>
     </>
   );
@@ -302,15 +319,32 @@ function SectionFive(){
 function Footer() {
   return (
     <>
-      <div className="footer">
+      <div id="footer">
         <ul>
-          <li>©2021 Relief International</li>
-          <li>Terms of Service</li>
-          <li>Privacy Statement</li>
+          <li>©2021 Relief International</li> |
+          <li>Terms of Service</li> |
+          <li>Privacy Statement</li> |
           <li>Cookie Notice</li>
         </ul>
+      </div>
+    </>
+  );
+}
 
-        <p>A site by <b>Shelby Etienne</b></p>
+function Legend() {
+  const content = (img, p) => {
+    return(
+    <>
+      <img src={img}/>
+      <p>{p}</p>
+    </>
+    )
+  }
+  return (
+    <>
+      <div id="legend">
+        {content(blue,"Office Locations")}
+        {content(yellow,"Projects")}
       </div>
     </>
   );
