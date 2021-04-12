@@ -108,10 +108,11 @@ function Home () {
 
   //popup
   const [trigger, setTrigger] = useState(false);
-  const [speed, setSpeed]= useState(0.1);
+  const [speed, setSpeed]= useState(0.3);
   const [client, setClient] = useState("");
   const [location, setLocation] = useState("");
   const [projects, setProjects] = useState([]);
+  const [focus, setFocus] = useState(null);
   
   const [xcoordinates, setXCoordinates] = useState(0);
   const [ycoordinates, setYCoordinates] = useState(0);
@@ -121,6 +122,7 @@ function Home () {
     window.addEventListener("mousedown", coordinates)
     window.addEventListener("resize", () => setScreenHeight(window.innerHeight))
   }, []);
+
 
   /*
   <div className="bg-white">
@@ -132,7 +134,7 @@ function Home () {
     <>
       <div id="scene">
         <div id="content">
-            <h1>We provide governments and global lending institutions with technical consulting services supported by disruptive technologies</h1>
+            <h2>We provide governments and global lending institutions with technical consulting services supported by disruptive technologies</h2>
             <p>Discover how we operate all over the globe
             </p>
         </div>
@@ -153,11 +155,14 @@ function Home () {
               focusEasingFunction: ['Cubic', 'Out'],
               enableMarkerGlow: false,
               enableCameraZoom: true,
+              enableDefocus: false,
+              markerRadiusScaleRange: [0.005, 0.015],
             }}
-            focus={null}
+            focus={focus}
             onClickMarker={onClick}
           />
           <Legend/>
+          <Legend2/>
         </div>
       </div>
       
@@ -178,7 +183,7 @@ function Home () {
       </div>
       
       
-      <Popup trigger={trigger} setSpeed={setSpeed}  setTrig={setTrigger} x={xcoordinates} y={ycoordinates} screenHeight={screenHeight}>
+      <Popup trigger={trigger} setSpeed={setSpeed}  setTrig={setTrigger} x={xcoordinates} y={ycoordinates} screenHeight={screenHeight} setFocus={setFocus}>
           <span id="arrow"></span>
           <h2>{client}</h2>
           <div className="location">
@@ -207,13 +212,15 @@ function Popup (props) {
   function doFunc ()
   {
     props.setTrig(false)
-    props.setSpeed(0.1)
+    props.setSpeed(0.3)
+    props.setFocus([0,-15])
   }
 
   return ( props.trigger ) ? (
     <>
-      <div className="popup" onClick={() => doFunc() }> 
+      <div className="popup" > 
         <div className="popup-inner">
+          <button onClick={() => doFunc() } >x</button>
           { props.children }
         </div>
       </div> 
@@ -345,6 +352,24 @@ function Legend() {
       <div id="legend">
         {content(blue,"Office Locations")}
         {content(yellow,"Projects")}
+      </div>
+    </>
+  );
+}
+
+function Legend2() {
+  const content = (img, p) => {
+    return(
+    <>
+      <img src={img}/>
+      <p>{p}</p>
+    </>
+    )
+  }
+  return (
+    <>
+      <div id="legend2">
+        {content("","Zoom In/Out with scroll wheel")}
       </div>
     </>
   );
